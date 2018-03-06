@@ -17,3 +17,5 @@
         name: screen
     - include_role:
         name: vim
+    - include_role:
+        name: zsh

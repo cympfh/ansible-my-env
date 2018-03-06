@@ -1,0 +1,4 @@
+- name: .zshrc
+  template:
+    src: zshrc.j2
+    dest: $HOME/.zshrc

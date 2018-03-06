@@ -11,3 +11,9 @@
   template:
     src: vimrc.j2
     dest: $HOME/.vimrc
+- file:
+    path: $HOME/.vim/bundle
+    state: directory
+- git:
+    repo: https://github.com/VundleVim/Vundle.vim.git
+    dest: $HOME/.vim/bundle/Vundle.vim
