@@ -1,0 +1,13 @@
+- name: mkdir ~/Tools
+  file:
+    path: $HOME/Tools
+    state: directory
+- name: get vim source code
+  unarchive:
+    src: ftp://ftp.vim.org/pub/vim/unix/vim-8.0.tar.bz2
+    dest: $HOME/Tools
+    remote_src: yes
+- name: .vimrc
+  template:
+    src: vimrc.j2
+    dest: $HOME/.vimrc

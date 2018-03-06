@@ -1,0 +1,19 @@
+---
+- hosts: deploy
+  tasks:
+    - name: dots files
+      git:
+        repo: ssh://git@github.com/cympfh/dots.git
+        dest: $HOME/.dots
+        accept_hostkey: yes
+    - name: bin files
+      git:
+        repo: ssh://git@github.com/cympfh/bin.git
+        dest: $HOME/bin
+        accept_hostkey: yes
+    - include_role:
+        name: pyenv
+    - include_role:
+        name: screen
+    - include_role:
+        name: vim

@@ -1,0 +1,13 @@
+- name: mkdir ~/Tools
+  file:
+    path: $HOME/Tools
+    state: directory
+- name: get screen source code
+  unarchive:
+    src: https://ftp.gnu.org/gnu/screen/screen-4.6.2.tar.gz
+    dest: $HOME/Tools
+    remote_src: yes
+- name: .screenrc
+  template:
+    src: screenrc.j2
+    dest: $HOME/.screenrc
