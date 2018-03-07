@@ -1,0 +1,22 @@
+- git:
+    repo: ssh://git@github.com/cympfh/bin.git
+    dest: $HOME/bin
+    accept_hostkey: yes
+- file:
+    path: $HOME/bin/stuff
+    state: directory
+
+- name: download peco
+  unarchive:
+    src: https://github.com/peco/peco/releases/download/v0.5.2/peco_linux_amd64.tar.gz
+    dest: $HOME/bin/stuff/
+    remote_src: yes
+- name: move peco
+  shell: >-
+    mv ~/bin/stuff/peco_*/peco ~/bin/stuff/peco && rm -rf ~/bin/stuff/peco_*
+
+- name: download jq
+  get_url:
+    url: https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64
+    dest: $HOME/bin/stuff/jq
+    mode: u+x
